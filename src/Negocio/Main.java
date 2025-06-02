@@ -14,25 +14,26 @@ public class Main {
     
     public static void main(String[] args) {
         ListaArreglo L1 = new ListaArreglo();
-        ListaArreglo L2 = new ListaArreglo();
-        ListaArreglo L3 = new ListaArreglo();
+//        ListaArreglo L2 = new ListaArreglo();
+//        ListaArreglo L3 = new ListaArreglo();
         
-        L2.insertarFinal(0,1 );
-        L2.insertarFinal(1, 3);
-        L2.insertarFinal(2, 5); 
-        L2.insertarFinal(3, 7);
+        L1.insertarFinal(0, 2);
+        L1.insertarFinal(1, 10);
+        L1.insertarFinal(2, 4); 
+        L1.insertarFinal(3, 3);
+        L1.insertarFinal(4, 8);
         
-        L3.insertarFinal(0, 2);
-        L3.insertarFinal(1, 4);
-        L3.insertarFinal(2, 6);
-        
-        L1.ejercicio7(L2, L3);
         
         //ver los datos
         System.out.println(L1.toString() );
+        System.out.println("la cantidad de Pares: " + L1.contarPares());
+        System.out.println("la cantidad de Pares: " + L1.contarImpares());
+        System.out.println("Obtener Menor: " + L1.obtenerMenor());
+        System.out.println("Multilpicacion: " + L1.multiplicarDigitoPar());
         
+       
         
         
     } 
-    
+
 }

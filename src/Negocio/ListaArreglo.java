@@ -42,7 +42,6 @@ public class ListaArreglo {
         boolean bandera = true;
         int contadorL2 = 0;
         int contadorL3 = 0;
-
         while (contadorL2 < L2.cantidadDeDatos() && contadorL3 < L3.cantidadDeDatos()) {
             if (bandera == true) {
                 //Saca de L2
@@ -66,10 +65,129 @@ public class ListaArreglo {
         while (contadorL2 < L2.cantidadDeDatos()) {
             insertarFinal(cant, L2.obtenerDato(contadorL2));
             contadorL2++;
-
         }
 
     }
+    
+    //5
+    public int contarParIterativo(){
+        int totalPar = 0;
+        for (int i = 0; i < this.cant; i++) {
+            if(this.vector[i] %2 == 0){
+                totalPar++;
+            }
+        }
+        return totalPar;   
+    }
+    
+    
+    //Recursivo
+    
+    public int contarPares(){
+        return contarParesRecursivo(this.cant);
+    }
+    
+    
+    //5
+    private int contarParesRecursivo(int cantAux ){
+//        if(cantAux == 0){
+//            return 0;
+//        }
+        if(cantAux ==1 ){ //Caso Base
+            if(this.vector[cantAux-1] %2 == 0 ){
+                return 1;
+            }else{
+                return 0;
+            }
+        }else{ //Caso general
+            cantAux = cantAux -1; //4
+            int totalPar = contarParesRecursivo(cantAux); // 3
+            if(this.vector[cantAux-1] % 2 == 0){
+                return totalPar+1;
+            }else{
+                return totalPar;
+            }
+        }
+    }
+    
+    
+    public int contarImpares(){
+        return contarImparesRecursivo(this.cant);
+    }
+    
+    
+    //5
+    private int contarImparesRecursivo(int cantAux ){
+        if(cantAux ==1 ){ //Caso Base
+            if(this.vector[cantAux-1] %2 != 0 ){
+                return 1;
+            }else{
+                return 0;
+            }
+        }else{ //Caso general
+            cantAux = cantAux -1; //4
+            int totalPar = contarImparesRecursivo(cantAux); // 3
+            if(this.vector[cantAux-1] % 2 != 0){
+                return totalPar+1;
+            }else{
+                return totalPar;
+            }
+        }
+    }
+    
+    public int obtenerMenor(){
+        return obtenerMenorRecursivo(this.cant);
+    }
+    
+    
+    private int obtenerMenorRecursivo(int cantAux){ //1
+        if(cantAux == 1 ){ //Caso base
+           return this.vector[cantAux -1]; 
+        }else{
+            int menor = obtenerMenorRecursivo(cantAux-1); // 3
+            if(this.vector[cantAux -1] < menor){
+                return this.vector[cantAux-1];
+            }else{
+                return menor;
+            }
+        }
+    }
+    
+   
+    
+    public int multiplicarDigitoPar(){
+       return multiplicarDigitoParRecursivo(this.cant);
+    }
+    
+    /**
+     * 
+     * @param cantAux
+     * @return 
+     * 
+     * si retorna -1 quiere decir que no hay pares en mi vector
+     */
+    
+    private int multiplicarDigitoParRecursivo(int cantAux){ //1
+        if(cantAux == 1){
+            if(this.vector[cantAux-1] %2 == 0 ){
+                return this.vector[cantAux -1];
+            }else{
+                return -1;
+            }
+        }else{
+           cantAux = cantAux -1;
+           int totalMul = multiplicarDigitoParRecursivo(cantAux); //80
+           if(this.vector[cantAux -1] %2 == 0 ){
+               return totalMul * this.vector[cantAux -1];
+           }else{
+               return totalMul;
+           }
+        }
+    }
+    
+    
+    
+    
 
     public String toString() { //Muestra los datos de mi arrgelo
         String cadena = "[ ";
